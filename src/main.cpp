@@ -1,11 +1,22 @@
+/*
+Station mobile de mesure atmosphérique
+Mesure de:
+  - Latitude
+  - Longitude
+  - Altitude
+  - Température [V0]
+  - Hygrométrie relative  [V1]
+  - Masse par unité de volume d'air de particules fines de 2.5 microns  [V2]
+  - Masse par unité de volume d'air de particules fines de 10 microns   [V3]
+  - Concentration en monoxyde de carbone  [V4]
+*/
+
+
 #include <Arduino.h>
 
-
-#define BLYNK_USE_DIRECT_CONNECT
-
-#include <BlynkSimpleEsp32_BLE.h>
-#include <BLEDevice.h>
-#include <BLEServer.h>
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
 #include <auth.h>
 
 #include <TinyGPS++.h>
@@ -22,10 +33,9 @@
 
 #define SD_CS 2
 #define DHT22_PIN 4
-#define SD_WRITE_LED 13
 
 #define         Board                   ("ESP-32")
-#define         Pin                     (25)
+#define         Pin                     (33)
 #define         Type                    ("MQ-9")
 #define         Voltage_Resolution      (3.3)
 #define         ADC_Bit_Resolution      (12)
@@ -33,7 +43,7 @@
 MQUnifiedsensor MQ9(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin, Type);
 
 
-float p10, p25, t, rh, ppm;
+float p10, p25, t, rh, ppm = 0;
 
 SDS011 my_sds(Serial);
 File myFile;
@@ -60,6 +70,7 @@ static void smartDelay(unsigned long ms)
 *   - Hygrométrie relative
 *   - Masse par unité de volume d'air de particules fines de 2.5 microns
 *   - Masse par unité de volume d'air de particules fines de 10 microns
+*   - Concentration en monoxyde de carbone
 */
 void writeFile(TinyGPSPlus gps, float t, float h, float &p25, float &p10, float &ppm) {
   char GPSdate[32], GPStime[32];
@@ -111,8 +122,7 @@ void setup()
     myFile.println("date,time,lat,lng,alt,temp,hyg,p25,p10,ppm");
     myFile.close();
   }
-  Blynk.setDeviceName("PROJET ES");
-  Blynk.begin(BLYNK_AUTH);
+  Blynk.begin(BLYNK_AUTH, WIFI_SSID, WIFI_KEY);
 
   timer.setInterval(5000L, readAndSend);
 
@@ -120,7 +130,6 @@ void setup()
   MQ9.setA(1000.5); MQ9.setB(-2.186);
   MQ9.init();
 
-  // CALIBRATION MQ-9 
   float calcR0 = 0;
   for(int i = 1; i<=10; i ++)
   {
@@ -138,9 +147,10 @@ void loop()
   while (Serial2.available()) gps.encode(Serial2.read()); //Traitement des données brutes GPS
   my_sds.read(&p25, &p10);                                //Lecture de la quantité de particules fines dans l'air
   t = dht.readTemperature();                              //Lecture de la température
-  rh = dht.readHumidity();                                //Lecture de l'humidité relative
+  rh = dht.readHumidity();                                //Lecture de l'hygrométrie relative
   MQ9.update();
   ppm = MQ9.readSensor();
+
   timer.run();
   smartDelay(100);
 }
