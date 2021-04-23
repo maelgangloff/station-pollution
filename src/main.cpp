@@ -1,9 +1,6 @@
 /*
-Station mobile de mesure atmosphérique
+Station mobile de mesure de la pollution atmosphérique
 Mesure de:
-  - Latitude
-  - Longitude
-  - Altitude
   - Température [V0]
   - Hygrométrie relative  [V1]
   - Pression relative     [V6]
@@ -49,9 +46,9 @@ File myFile;
 TinyGPSPlus gps;
 DHT dht(DHT22_PIN, DHT22);
 BlynkTimer timer;
-WidgetLED led1(V5);
+WidgetLED led(V5);
 MQUnifiedsensor MQ9(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin, Type);
-Adafruit_BMP280 bmp; // I2C
+Adafruit_BMP280 bmp;
 
 float p10, p25, t, rh, press, ppm = 0;
 
@@ -109,9 +106,9 @@ void readAndSend(){
   Serial.println(press);
   if (gps.location.isValid()) {
     writeFile(gps, t, rh, press, p25, p10, ppm);
-    led1.on();
+    led.on();
   }else{
-    led1.off();
+    led.off();
   }
 }
 
