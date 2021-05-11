@@ -104,12 +104,8 @@ void readAndSend(){
   Blynk.virtualWrite(V4, ppm);
   Blynk.virtualWrite(V6, press);
   Serial.println(press);
-  if (gps.location.isValid()) {
-    writeFile(gps, t, rh, press, p25, p10, ppm);
-    led.on();
-  }else{
-    led.off();
-  }
+  gps.location.isValid() ? led.on() : led.off();
+  writeFile(gps, t, rh, press, p25, p10, ppm);
 }
 
 void setup()
