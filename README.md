@@ -27,7 +27,7 @@ La pollution atmosphérique globale est causée par la pollution atmosphérique 
 
 ### 2. Les particules en suspension (aéroportées)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Airborne-particulate-size-chart_fr_particules.jpg" alt="Airborne-particulate-size-chart fr particules.jpg" height="480" width="439">  
+<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Airborne-particulate-size-chart_fr_particules.jpg" alt="Airborne-particulate-size-chart fr particules.jpg" height="480" width="439"></p>  
 Les particules fines PM2.5 et PM10 sont des types de particules aéroportées:
 - PM2.5 : dont le diamètre est inférieur à 2,5 micromètres, appelées « particules fines ». Ces particules peuvent pénétrer les alvéoles pulmonaires ce qui les rendent plus dangeureuses.
 - PM10 : particules en suspension dans l'air, d'un diamètre aérodynamique (ou diamètre aéraulique) inférieur à 10 micromètres.
@@ -50,7 +50,7 @@ Les polluants mesurés sont l'ozone, le dioxyde de soufre, le dioxyde d'azote, l
 ## II. Expérimentation, résultats et analyse
 
 Pour mesurer la quantité de particules fines dans l'air, nous utilisons le capteur SDS011. La mesure de la concentration en monoxyde de carbone est assurée par le capteur MQ-9.  
-La mesure de la quantité de particules fines par le SDS011 repose sur le principe physique de la diffusion laser. La résolution du diamètre des particules est inférieure à 0.3µm. L'erreur relative de mesure est d'environ 10%. Les données sont sauvegardées dans un fichier CSV sur une carte microSD. L'interval entre les mesures est de 5 secondes.  
+La mesure de la quantité de particules fines par le SDS011 repose sur le principe physique de la diffusion laser. La résolution du diamètre des particules est d'au moins 0.3µm. L'erreur relative de mesure est d'environ 10%. Les données sont sauvegardées dans un fichier CSV sur une carte microSD. L'interval entre les mesures est de 5 secondes.  
 Les données sauvegardées sont:
 
 - Les coordonnées GPS de la mesure (latitude, longitude, altitude)
@@ -69,7 +69,7 @@ Les mesures sont réalisés à différents lieux:
 - En ville
 - A proximité de grands axes routiers
 
-L'objectif est de comparer les mesures suivant le lieu et de conclure sur l'impact de l'Homme.
+L'objectif est de comparer les mesures suivant le lieu et de conclure sur l'impact des activités humaines dans les variations des mesures obtenues.
 
 ## III. Conclusion
 
@@ -77,4 +77,4 @@ ___
 Sources:
 
 - Wikipédia
-- acunusa.fr
+- acnusa.fr
