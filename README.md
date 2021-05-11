@@ -36,7 +36,7 @@ Peuvent pénètrent les bronches
 ### 3. Les sources de contamination de l'air
 
 - Les installations industrielles (SO2, poussières, métaux, COV, ...)
-- Les transports (Nox, CO, PM, ...)
+- Les transports (NOx, CO, PM, ...)
 - L'incinération des ordures ménagères (Métaux, acide chlorhydrique, dioxines, ...)
 - L'agriculture (Poussières, NH3, ...)
 - Les activités domestiques (COV, ...)
