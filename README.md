@@ -44,7 +44,7 @@ Peuvent pénètrent les bronches
 
 #### 4. Un indice de la qualité de l'air (IQA)
 
-Indice HATMO pour les agglomérations de plus de 100 000 habitants et indice IQA pour les autres. L'indice IQA est un indice simplifié qui repose sur la mesure d'un nombre réduit de polluants.
+Indice ATMO pour les agglomérations de plus de 100 000 habitants et indice IQA pour les autres. L'indice IQA est un indice simplifié qui repose sur la mesure d'un nombre réduit de polluants.
 Les polluants mesurés sont l'ozone, le dioxyde de soufre, le dioxyde d'azote, les PM10 et PM2.5.
 
 ## II. Expérimentation, résultats et analyse
