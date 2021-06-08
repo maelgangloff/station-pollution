@@ -76,6 +76,14 @@ L'objectif est de comparer les mesures suivant le lieu et de conclure sur l'impa
 
 ## III. Conclusion
 
+Les particules fines sont en moyennes en plus grande quantité:
+- Dans les espaces clos
+- A proximité des axes routiers
+Tandis qu’elles sont en plus faible concentration en zones naturels.
+Les activités humaines et en particulier le secteur résidentiel et les transports sont la source principale d’émissions de particules fines.
+
+Mais il existe d’autres pollution que la pollution atmosphérique comme par exemple la pollution de l’eau qui menace la vie aquatique.
+
 ___
 Sources:
 
